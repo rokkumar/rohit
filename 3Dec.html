@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        box-sizing: border-box;
+    }
+
+    .container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 16px;
+        margin-bottom: 5px;
+        display: block;
+        color: #333;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    .result {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .remarks {
+        font-size: 16px;
+        color: #666;
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            padding: 15px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        input,
+        button {
+            font-size: 14px;
+        }
+    }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Rohit Character Checking Web</h1>
+    <form>
+        <label for="m">Enter AnyCharacter</label>
+        <input id="m" type="text" autocomplete="off" placeholder="Enter Character" required>
+        <button type="button" onclick="grade()">Character Check</button>
+
+        <label for="res">Result</label>
+        <input id="res" type="text" autocomplete="off" readonly>
+
+        <label for="rmk">Your Enter Data</label>
+        <input id="rmk" type="text" autocomplete="off" readonly>
+    </form>
+    <div class="result">
+        <div id="gradeResult"></div>
+        <div id="remarksResult" class="remarks"></div>
+    </div>
+    <script>
+      function grade(){
+        let char=document.getElementById("m").value
+        let r=""
+        let c=""
+        if(char>="a"&&char<="z"){
+          r="lower case !"
+          c=char
+        }
+        else if(char>="A"&& char<="Z"){
+          r="upper case !"
+          c=char
+        }
+        else if(char>="0" && char<="9"){
+            r="Digit"
+            c=char
+        }
+        else{
+           r="Specail Symbols"
+           c=char
+        }
+           document.getElementById("res").value=r
+           document.getElementById("rmk").value=c
+
+           document.getElementById("m").value=""
+
+      }
+    </script>
+</div>
+</body>
+</html>
